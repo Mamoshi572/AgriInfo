@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AgriInfo - Offline Agricultural Information Platform">
+    <title>AgriInfo | Offline Agriculture Guide</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
+</head>
+<body>
+    <!-- Offline Indicator -->
+    <div id="offline-indicator" class="offline-indicator">
+        ⚠️ You are currently offline. App is working in offline mode.
+    </div>
+
+    <!-- App Header -->
+    <header class="app-header">
+        <div class="container">
+            <div class="logo-section">
+                <h1>🌱 AgriInfo</h1>
+                <p class="tagline">Offline Agricultural Knowledge Platform</p>
+            </div>
+            <div class="connection-status">
+                <span id="connection-status">Online</span>
+                <div class="sync-status">
+                    <span id="sync-status">Synced</span>
+                    <button id="sync-btn" class="btn-sync">🔄 Sync</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">🏠 Home</a></li>
+                <li><a href="#crops" class="nav-link">🌾 Crops Guide</a></li>
+                <li><a href="#pest" class="nav-link">🐛 Pest Control</a></li>
+                <li><a href="#weather" class="nav-link">⛅ Weather</a></li>
+                <li><a href="#market" class="nav-link">💰 Market Prices</a></li>
+                <li><a href="#tools" class="nav-link">🛠️ Farming Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Home Section -->
+            <section id="home" class="section active">
+                <h2>Welcome to AgriInfo</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>🌾 Crops Database</h3>
+                        <p id="crop-count">Loading...</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>💾 Storage</h3>
+                        <p id="storage-status">Checking...</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🔄 Last Sync</h3>
+                        <p id="last-sync">Never</p>
+                    </div>
+                </div>
+                
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <button id="load-data" class="btn-primary">📥 Load Crop Data</button>
+                        <button id="clear-cache" class="btn-secondary">🗑️ Clear Cache</button>
+                        <button id="export-data" class="btn-primary">📤 Export Data</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Crops Guide Section -->
+            <section id="crops" class="section">
+                <h2>Crop Cultivation Guide</h2>
+                <div class="search-box">
+                    <input type="text" id="crop-search" placeholder="Search crops..." class="search-input">
+                    <button id="search-btn" class="btn-primary">🔍 Search</button>
+                </div>
+                <div class="crops-grid" id="crops-container">
+                    <!-- Crops will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Pest Control Section -->
+            <section id="pest" class="section">
+                <h2>Pest & Disease Management</h2>
+                <div id="pest-container" class="pest-container">
+                    <!-- Pest data will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Weather Section -->
+            <section id="weather" class="section">
+                <h2>Weather Information</h2>
+                <div class="weather-card">
+                    <div class="weather-info">
+                        <h3>Local Weather</h3>
+                        <p>⚠️ Enable location to get weather data</p>
+                        <button id="get-weather" class="btn-primary">🌤️ Get Weather</button>
+                    </div>
+                    <div id="weather-data" class="weather-data">
+                        <!-- Weather data will be shown here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Prices Section -->
+            <section id="market" class="section">
+                <h2>Market Prices</h2>
+                <div id="market-container" class="market-container">
+                    <!-- Market data will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Tools Section -->
+            <section id="tools" class="section">
+                <h2>Farming Tools & Calculators</h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h3>🌱 Seed Calculator</h3>
+                        <div class="calculator">
+                            <input type="number" id="land-area" placeholder="Land area (acres)">
+                            <select id="crop-type">
+                                <option value="wheat">Wheat</option>
+                                <option value="rice">Rice</option>
+                                <option value="corn">Corn</option>
+                            </select>
+                            <button id="calculate-seed" class="btn-primary">Calculate</button>
+                            <p id="seed-result"></p>
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <h3>💧 Water Calculator</h3>
+                        <div class="calculator">
+                            <input type="number" id="water-area" placeholder="Area (acres)">
+                            <select id="soil-type">
+                                <option value="clay">Clay Soil</option>
+                                <option value="loam">Loam Soil</option>
+                                <option value="sandy">Sandy Soil</option>
+                            </select>
+                            <button id="calculate-water" class="btn-primary">Calculate</button>
+                            <p id="water-result"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="container">
+            <p>AgriInfo © 2024 | Offline Agricultural Platform</p>
+            <p>Data updated: <span id="data-updated">Loading...</span></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/db.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/sync.js"></script>
+    
+    <!-- Register Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+</html>
