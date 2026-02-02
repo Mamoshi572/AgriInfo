@@ -47,12 +47,6 @@
       }
     },
     {
-      "src": "/data/(.*)",
-      "headers": {
-        "Cache-Control": "public, max-age=3600"
-      }
-    },
-    {
       "src": "/(.*)",
       "headers": {
         "Cache-Control": "public, max-age=0, must-revalidate"
@@ -97,7 +91,6 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "regions": ["nrt1"],
   "github": {
     "enabled": true,
     "silent": true
