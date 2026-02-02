@@ -41,13 +41,13 @@
       }
     },
     {
-      "src": "/images/(.*)",
+      "src": "/manifest.json",
       "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
+        "Cache-Control": "public, max-age=3600"
       }
     },
     {
-      "src": "/manifest.json",
+      "src": "/data/(.*)",
       "headers": {
         "Cache-Control": "public, max-age=3600"
       }
@@ -89,7 +89,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.agriinfo.co.ke;"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';"
         }
       ]
     }
@@ -97,14 +97,9 @@
   "env": {
     "NODE_ENV": "production"
   },
+  "regions": ["nrt1"],
   "github": {
     "enabled": true,
     "silent": true
-  },
-  "regions": ["nrt1"],
-  "functions": {
-    "api/*.js": {
-      "maxDuration": 10
-    }
   }
 }
