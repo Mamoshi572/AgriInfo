@@ -10,28 +10,82 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     
     <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#4CAF50">
+    <meta name="theme-color" content="#2E7D32">
     <meta name="description" content="Offline-first agricultural platform for Kenyan farmers with marketplace, tools, and real-time data.">
     
     <!-- Apple PWA Support -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Enhanced Fonts for Better Readability -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Typography Improvements -->
+    <style>
+        /* Base typography improvements */
+        :root {
+            font-size: 16px;
+        }
+        
+        /* Better text rendering */
+        body {
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Improve contrast for important text */
+        .important-text {
+            color: var(--text-primary, #212121);
+            font-weight: 600;
+        }
+        
+        /* Better line spacing for readability */
+        .readable-text {
+            line-height: 1.6;
+            max-width: 65ch;
+        }
+        
+        /* Highlight important numbers */
+        .highlight-number {
+            color: var(--primary-color, #2E7D32);
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+        
+        /* Accessibility focus styles */
+        :focus-visible {
+            outline: 3px solid #2E7D32;
+            outline-offset: 3px;
+        }
+        
+        /* Print styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            body {
+                font-size: 12pt !important;
+                line-height: 1.4 !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Offline Indicator -->
-    <div id="offline-indicator" class="offline-banner">
+    <div id="offline-indicator" class="offline-banner no-print">
         <span>⚠️ You are offline. Working in offline mode.</span>
     </div>
 
     <!-- App Header -->
-    <header class="app-header">
+    <header class="app-header no-print">
         <div class="header-content">
             <div class="logo-section">
                 <h1 class="logo">🌱 AgriInfo Kenya</h1>
-                <p class="tagline">Empowering Kenyan Farmers Digitally</p>
+                <p class="tagline readable-text">Empowering Kenyan Farmers with Digital Tools</p>
             </div>
             
             <div class="header-stats">
@@ -41,20 +95,20 @@
                 <div class="stat-item">
                     <span id="data-updated">Just now</span>
                 </div>
-                <button id="sync-btn" class="btn-sync">
+                <button id="sync-btn" class="btn-sync" aria-label="Sync data">
                     🔄 <span id="sync-status">Sync</span>
                 </button>
             </div>
         </div>
         
         <!-- Navigation -->
-        <nav class="main-nav">
-            <a href="#home" class="nav-link active">🏠 Home</a>
-            <a href="#crops" class="nav-link">🌾 Crops</a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="#home" class="nav-link active" aria-current="page">🏠 Home</a>
+            <a href="#crops" class="nav-link">🌾 Crop Information</a>
             <a href="#pest" class="nav-link">🐛 Pest Control</a>
             <a href="#market" class="nav-link">💰 Marketplace</a>
-            <a href="#tools" class="nav-link">🛠️ Tools</a>
-            <a href="#profile" class="nav-link">👤 Profile</a>
+            <a href="#tools" class="nav-link">🛠️ Farming Tools</a>
+            <a href="#profile" class="nav-link">👤 Farmer Profile</a>
         </nav>
     </header>
 
@@ -64,26 +118,26 @@
         <section id="home" class="section active">
             <div class="hero-section">
                 <h2>Welcome to AgriInfo Kenya</h2>
-                <p>Your digital companion for modern farming in Kenya</p>
+                <p class="readable-text">Your digital companion for modern farming in Kenya - Accessible, Reliable, and Designed for You</p>
                 
                 <div class="quick-stats">
                     <div class="stat-card">
-                        <h3 id="crop-count">0 crops</h3>
-                        <p>In Database</p>
+                        <h3 id="crop-count" class="highlight-number">0 crops</h3>
+                        <p class="important-text">In Database</p>
                     </div>
                     <div class="stat-card">
-                        <h3 id="storage-status">Ready</h3>
-                        <p>Storage Status</p>
+                        <h3 id="storage-status" class="highlight-number">Ready</h3>
+                        <p class="important-text">Storage Status</p>
                     </div>
                     <div class="stat-card">
-                        <h3 id="last-sync">Never</h3>
-                        <p>Last Sync</p>
+                        <h3 id="last-sync" class="highlight-number">Never</h3>
+                        <p class="important-text">Last Sync</p>
                     </div>
                 </div>
             </div>
 
-            <div class="action-buttons">
-                <button id="load-data" class="btn-primary">📥 Load Sample Data</button>
+            <div class="action-buttons no-print">
+                <button id="load-data" class="btn-primary">📥 Load Kenyan Sample Data</button>
                 <button id="clear-cache" class="btn-secondary">🧹 Clear Cache</button>
                 <button id="export-data" class="btn-secondary">📤 Export Data</button>
             </div>
@@ -93,19 +147,28 @@
 
             <!-- Quick Tools -->
             <div class="quick-tools">
-                <h3>🛠️ Quick Tools</h3>
+                <h3>🛠️ Quick Farming Tools</h3>
+                <p class="readable-text">Access essential tools for your daily farming activities</p>
                 <div class="tools-grid">
-                    <button class="tool-btn" onclick="agriApp.showSection('tools')">
-                        💧 Water Calculator
+                    <button class="tool-btn" onclick="agriApp.showSection('tools')" aria-label="Open water calculator">
+                        <span class="tool-icon">💧</span>
+                        <span class="tool-name">Water Calculator</span>
+                        <span class="tool-desc">Calculate irrigation needs</span>
                     </button>
-                    <button class="tool-btn" onclick="agriApp.showSection('tools')">
-                        🌱 Seed Calculator
+                    <button class="tool-btn" onclick="agriApp.showSection('tools')" aria-label="Open seed calculator">
+                        <span class="tool-icon">🌱</span>
+                        <span class="tool-name">Seed Calculator</span>
+                        <span class="tool-desc">Estimate seed requirements</span>
                     </button>
-                    <button class="tool-btn" onclick="agriApp.showSection('market')">
-                        💰 Market Prices
+                    <button class="tool-btn" onclick="agriApp.showSection('market')" aria-label="Open marketplace">
+                        <span class="tool-icon">💰</span>
+                        <span class="tool-name">Market Prices</span>
+                        <span class="tool-desc">Check current prices</span>
                     </button>
-                    <button id="get-weather" class="tool-btn">
-                        🌤️ Weather Check
+                    <button id="get-weather" class="tool-btn" aria-label="Check weather">
+                        <span class="tool-icon">🌤️</span>
+                        <span class="tool-name">Weather Check</span>
+                        <span class="tool-desc">Local weather information</span>
                     </button>
                 </div>
             </div>
@@ -113,102 +176,340 @@
 
         <!-- Crops Section -->
         <section id="crops" class="section">
-            <h2>🌾 Crop Information</h2>
-            
-            <div class="search-container">
-                <input type="text" id="crop-search" placeholder="Search crops (e.g., Maize, Beans)...">
-                <button id="search-btn" class="btn-primary">Search</button>
+            <div class="section-header">
+                <h2>🌾 Crop Information Database</h2>
+                <p class="section-subtitle readable-text">Comprehensive information about Kenyan crops including planting guides, requirements, and market insights</p>
             </div>
             
+            <div class="search-container no-print">
+                <input type="text" id="crop-search" placeholder="Search crops (e.g., Maize, Beans, Coffee)..." aria-label="Search crops">
+                <button id="search-btn" class="btn-primary">Search</button>
+                <button id="clear-search" class="btn-secondary" style="display:none;">Clear</button>
+            </div>
+            
+            <div id="search-results-info" class="search-info" aria-live="polite"></div>
+            
             <div id="crops-container" class="crops-grid"></div>
+            
+            <div class="no-results" id="no-crops-found" style="display: none;">
+                <p>No crops found. Try a different search term or load sample data.</p>
+                <button onclick="agriApp.loadKenyanSampleData()" class="btn-primary">Load Kenyan Sample Data</button>
+            </div>
         </section>
 
         <!-- Pest Control Section -->
         <section id="pest" class="section">
-            <h2>🐛 Pest & Disease Control</h2>
+            <div class="section-header">
+                <h2>🐛 Pest & Disease Management</h2>
+                <p class="section-subtitle readable-text">Identify, prevent, and control common pests and diseases affecting Kenyan crops</p>
+            </div>
+            
+            <div class="pest-filters no-print">
+                <select id="pest-crop-filter" aria-label="Filter by crop">
+                    <option value="">All Crops</option>
+                    <option value="Maize">Maize</option>
+                    <option value="Coffee">Coffee</option>
+                    <option value="Tea">Tea</option>
+                    <option value="Beans">Beans</option>
+                </select>
+                <select id="pest-severity-filter" aria-label="Filter by severity">
+                    <option value="">All Severities</option>
+                    <option value="Low">Low Severity</option>
+                    <option value="Medium">Medium Severity</option>
+                    <option value="High">High Severity</option>
+                </select>
+                <button id="filter-pests" class="btn-primary">Filter</button>
+            </div>
+            
             <div id="pest-container" class="pest-grid"></div>
+            
+            <div class="pest-info-note">
+                <p><strong>💡 Note:</strong> Always consult with local agricultural extension officers for specific recommendations in your area.</p>
+            </div>
         </section>
 
         <!-- Marketplace Section -->
         <section id="market" class="section">
-            <h2>💰 Farmer's Marketplace</h2>
-            <p class="section-subtitle">Buy and sell produce directly with other farmers</p>
+            <div class="section-header">
+                <h2>💰 Farmer's Marketplace</h2>
+                <p class="section-subtitle readable-text">Connect directly with other farmers to buy and sell agricultural produce</p>
+            </div>
             
             <!-- Marketplace UI will be injected here by JavaScript -->
-            <div id="marketplace-container"></div>
+            <div id="marketplace-container">
+                <div class="marketplace-loading">
+                    <p>Loading marketplace...</p>
+                </div>
+            </div>
+            
+            <div class="marketplace-info">
+                <div class="info-card">
+                    <h3>📱 How It Works</h3>
+                    <ol class="readable-text">
+                        <li><strong>Browse Listings:</strong> View available produce from farmers across Kenya</li>
+                        <li><strong>List Your Produce:</strong> Add your crops for sale with details and pricing</li>
+                        <li><strong>Connect Directly:</strong> Contact farmers through provided phone numbers</li>
+                        <li><strong>Trade Securely:</strong> Work offline and sync when you have connection</li>
+                    </ol>
+                </div>
+                <div class="info-card">
+                    <h3>✅ Safety Tips</h3>
+                    <ul class="readable-text">
+                        <li>Verify farmer details before transactions</li>
+                        <li>Meet in safe, public locations for exchanges</li>
+                        <li>Use secure payment methods (M-Pesa)</li>
+                        <li>Check produce quality before purchase</li>
+                        <li>Report suspicious activity to admin</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <!-- Tools Section -->
         <section id="tools" class="section">
-            <h2>🛠️ Farming Tools</h2>
+            <div class="section-header">
+                <h2>🛠️ Farming Tools & Calculators</h2>
+                <p class="section-subtitle readable-text">Practical tools to help with daily farming calculations and planning</p>
+            </div>
             
             <div class="tools-container">
                 <!-- Seed Calculator -->
                 <div class="tool-card">
-                    <h3>🌱 Seed Calculator</h3>
+                    <div class="tool-card-header">
+                        <span class="tool-icon">🌱</span>
+                        <h3>Seed Requirement Calculator</h3>
+                    </div>
+                    <p class="tool-description readable-text">Calculate the exact amount of seeds needed for your farm based on crop type and land area.</p>
+                    
                     <div class="input-group">
-                        <label>Land Area (acres):</label>
-                        <input type="number" id="land-area" placeholder="e.g., 5" min="0.1" step="0.1">
+                        <label for="land-area">Land Area (acres):</label>
+                        <input type="number" id="land-area" placeholder="e.g., 5" min="0.1" step="0.1" aria-describedby="area-help">
+                        <small id="area-help" class="input-help">Enter your farm size in acres</small>
                     </div>
                     <div class="input-group">
-                        <label>Crop Type:</label>
-                        <select id="crop-type">
-                            <option value="maize">Maize</option>
-                            <option value="wheat">Wheat</option>
-                            <option value="rice">Rice</option>
-                            <option value="beans">Beans</option>
+                        <label for="crop-type">Crop Type:</label>
+                        <select id="crop-type" aria-describedby="crop-help">
+                            <option value="maize">Maize (Mahindi)</option>
+                            <option value="wheat">Wheat (Ngano)</option>
+                            <option value="rice">Rice (Mchele)</option>
+                            <option value="beans">Beans (Maharagwe)</option>
+                            <option value="potatoes">Potatoes (Viazi)</option>
                         </select>
+                        <small id="crop-help" class="input-help">Select the crop you want to plant</small>
                     </div>
-                    <button id="calculate-seed" class="btn-primary">Calculate</button>
-                    <div class="result" id="seed-result"></div>
+                    <button id="calculate-seed" class="btn-primary">Calculate Seed Requirements</button>
+                    <div class="result" id="seed-result" aria-live="polite"></div>
                 </div>
 
                 <!-- Water Calculator -->
                 <div class="tool-card">
-                    <h3>💧 Water Calculator</h3>
+                    <div class="tool-card-header">
+                        <span class="tool-icon">💧</span>
+                        <h3>Irrigation Water Calculator</h3>
+                    </div>
+                    <p class="tool-description readable-text">Estimate water requirements for irrigation based on soil type and area.</p>
+                    
                     <div class="input-group">
-                        <label>Area (acres):</label>
-                        <input type="number" id="water-area" placeholder="e.g., 5" min="0.1" step="0.1">
+                        <label for="water-area">Irrigation Area (acres):</label>
+                        <input type="number" id="water-area" placeholder="e.g., 5" min="0.1" step="0.1" aria-describedby="water-area-help">
+                        <small id="water-area-help" class="input-help">Area that needs irrigation</small>
                     </div>
                     <div class="input-group">
-                        <label>Soil Type:</label>
-                        <select id="soil-type">
-                            <option value="clay">Clay</option>
-                            <option value="loam">Loam</option>
-                            <option value="sandy">Sandy</option>
+                        <label for="soil-type">Soil Type:</label>
+                        <select id="soil-type" aria-describedby="soil-help">
+                            <option value="clay">Clay Soil (Holds water well)</option>
+                            <option value="loam">Loam Soil (Balanced drainage)</option>
+                            <option value="sandy">Sandy Soil (Drains quickly)</option>
                         </select>
+                        <small id="soil-help" class="input-help">Select your predominant soil type</small>
                     </div>
-                    <button id="calculate-water" class="btn-primary">Calculate</button>
-                    <div class="result" id="water-result"></div>
+                    <button id="calculate-water" class="btn-primary">Calculate Water Needs</button>
+                    <div class="result" id="water-result" aria-live="polite"></div>
                 </div>
 
                 <!-- Weather Check -->
                 <div class="tool-card">
-                    <h3>🌤️ Weather Check</h3>
-                    <p>Get current weather conditions for your location</p>
-                    <button id="get-weather-tool" class="btn-primary">Check Weather</button>
-                    <div id="weather-data" class="weather-info"></div>
+                    <div class="tool-card-header">
+                        <span class="tool-icon">🌤️</span>
+                        <h3>Farm Weather Assistant</h3>
+                    </div>
+                    <p class="tool-description readable-text">Get current weather conditions and farming recommendations for your location.</p>
+                    
+                    <div class="weather-instructions readable-text">
+                        <p><strong>How to use:</strong> Allow location access for accurate weather data, or view general Kenyan weather information.</p>
+                    </div>
+                    
+                    <div class="weather-actions">
+                        <button id="get-weather-tool" class="btn-primary">Check Current Weather</button>
+                        <button id="view-kenyan-weather" class="btn-secondary">View Kenyan Regions</button>
+                    </div>
+                    
+                    <div id="weather-data" class="weather-info" aria-live="polite">
+                        <div class="weather-placeholder">
+                            <p>Weather information will appear here after checking.</p>
+                        </div>
+                    </div>
+                    
+                    <div id="kenyan-regions-weather" class="weather-info" style="display: none;" aria-live="polite">
+                        <h4>Kenyan Regional Weather</h4>
+                        <div class="region-weather-grid"></div>
+                    </div>
                 </div>
+
+                <!-- Profit Calculator -->
+                <div class="tool-card">
+                    <div class="tool-card-header">
+                        <span class="tool-icon">💰</span>
+                        <h3>Farm Profit Calculator</h3>
+                    </div>
+                    <p class="tool-description readable-text">Estimate potential profits from your farm based on crop yield and market prices.</p>
+                    
+                    <div class="input-group">
+                        <label for="crop-yield">Expected Yield (kg/acre):</label>
+                        <input type="number" id="crop-yield" placeholder="e.g., 1000" min="1" step="1" aria-describedby="yield-help">
+                        <small id="yield-help" class="input-help">Average yield per acre</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="farm-size">Farm Size (acres):</label>
+                        <input type="number" id="farm-size" placeholder="e.g., 5" min="0.1" step="0.1" aria-describedby="size-help">
+                        <small id="size-help" class="input-help">Total farm area</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="market-price">Market Price (KES/kg):</label>
+                        <input type="number" id="market-price" placeholder="e.g., 50" min="1" step="1" aria-describedby="price-help">
+                        <small id="price-help" class="input-help">Current market price per kg</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="production-cost">Production Cost (KES/acre):</label>
+                        <input type="number" id="production-cost" placeholder="e.g., 20000" min="1" step="100" aria-describedby="cost-help">
+                        <small id="cost-help" class="input-help">Cost per acre (seeds, labor, etc.)</small>
+                    </div>
+                    
+                    <button id="calculate-profit" class="btn-primary">Calculate Profit Estimate</button>
+                    <div class="result" id="profit-result" aria-live="polite"></div>
+                </div>
+            </div>
+            
+            <div class="tools-note">
+                <p><strong>📊 Note:</strong> These calculations are estimates. Actual requirements may vary based on specific local conditions, soil quality, and farming practices.</p>
             </div>
         </section>
 
         <!-- Profile Section -->
         <section id="profile" class="section">
-            <h2>👤 Farmer Profile</h2>
+            <div class="section-header">
+                <h2>👤 Farmer Profile & Settings</h2>
+                <p class="section-subtitle readable-text">Manage your farmer profile, settings, and data preferences</p>
+            </div>
+            
             <div id="profile-container" class="profile-container">
-                <!-- Profile will be loaded dynamically -->
+                <div class="profile-loading">
+                    <p>Loading your profile...</p>
+                </div>
+            </div>
+            
+            <div class="profile-actions no-print">
+                <h3>Data Management</h3>
+                <div class="action-grid">
+                    <button onclick="agriApp.exportData()" class="btn-secondary" aria-label="Export all data">
+                        <span class="action-icon">📤</span>
+                        <span class="action-text">Export All Data</span>
+                        <span class="action-desc">Download backup of all your information</span>
+                    </button>
+                    <button onclick="agriApp.importDataPrompt()" class="btn-secondary" aria-label="Import data">
+                        <span class="action-icon">📥</span>
+                        <span class="action-text">Import Data</span>
+                        <span class="action-desc">Restore from backup file</span>
+                    </button>
+                    <button onclick="agriApp.clearCache()" class="btn-secondary" aria-label="Clear cache">
+                        <span class="action-icon">🧹</span>
+                        <span class="action-text">Clear Cache</span>
+                        <span class="action-desc">Remove temporary data</span>
+                    </button>
+                    <button onclick="agriApp.resetApp()" class="btn-secondary" aria-label="Reset app">
+                        <span class="action-icon">🔄</span>
+                        <span class="action-text">Reset App</span>
+                        <span class="action-desc">Start fresh (keeps backups)</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="app-settings">
+                <h3>Application Settings</h3>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label class="switch">
+                            <input type="checkbox" id="offline-mode" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <div class="setting-info">
+                            <strong>Offline Mode</strong>
+                            <p class="readable-text">Work without internet connection (Recommended)</p>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <label class="switch">
+                            <input type="checkbox" id="auto-sync">
+                            <span class="slider"></span>
+                        </label>
+                        <div class="setting-info">
+                            <strong>Auto Sync</strong>
+                            <p class="readable-text">Automatically sync data when online</p>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <label for="currency-select">Currency:</label>
+                        <select id="currency-select">
+                            <option value="KES" selected>Kenyan Shilling (KES)</option>
+                            <option value="USD">US Dollar (USD)</option>
+                            <option value="EUR">Euro (EUR)</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="language-select">Language:</label>
+                        <select id="language-select">
+                            <option value="en" selected>English</option>
+                            <option value="sw">Swahili (Coming Soon)</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="app-footer">
-        <p>🌱 AgriInfo Kenya | Made for Kenyan Farmers | Offline-First PWA</p>
-        <p class="footer-links">
-            <a href="#" onclick="agriApp.exportData()">Export Data</a> | 
-            <a href="#" onclick="agriApp.clearCache()">Clear Cache</a> | 
-            <a href="#home">Home</a>
-        </p>
+    <footer class="app-footer no-print">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>🌱 AgriInfo Kenya</h4>
+                <p class="readable-text">Empowering Kenyan farmers with accessible digital tools for better farming decisions.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">🏠 Home</a></li>
+                    <li><a href="#market">💰 Marketplace</a></li>
+                    <li><a href="#tools">🛠️ Tools</a></li>
+                    <li><a href="#" onclick="agriApp.exportData()">📤 Export Data</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="agriApp.showHelp()">📚 User Guide</a></li>
+                    <li><a href="#" onclick="agriApp.showAbout()">ℹ️ About</a></li>
+                    <li><a href="#" onclick="agriApp.reportIssue()">🐛 Report Issue</a></li>
+                    <li><a href="#" onclick="agriApp.shareApp()">📱 Share App</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2024 AgriInfo Kenya | Made for Kenyan Farmers | Offline-First PWA</p>
+            <p class="footer-version">Version 2.0 | <span id="app-version">Loading...</span></p>
+        </div>
     </footer>
 
     <!-- JavaScript Files -->
@@ -220,9 +521,14 @@
     <script>
         // Register Service Worker
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js')
-                .then(reg => console.log('Service Worker registered:', reg))
-                .catch(err => console.log('Service Worker registration failed:', err));
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => {
+                        console.log('Service Worker registered:', reg);
+                        reg.update();
+                    })
+                    .catch(err => console.log('Service Worker registration failed:', err));
+            });
         }
         
         // Install prompt
@@ -233,15 +539,113 @@
             
             // Show install button
             const installBtn = document.createElement('button');
-            installBtn.textContent = '📲 Install App';
+            installBtn.textContent = '📲 Install AgriInfo App';
             installBtn.className = 'install-btn';
+            installBtn.setAttribute('aria-label', 'Install AgriInfo as an app');
             installBtn.onclick = () => {
                 deferredPrompt.prompt();
-                deferredPrompt.userChoice.then(() => {
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    } else {
+                        console.log('User dismissed the install prompt');
+                    }
                     deferredPrompt = null;
                 });
             };
-            document.querySelector('.app-footer').prepend(installBtn);
+            
+            // Add to footer
+            const footer = document.querySelector('.app-footer');
+            if (footer) {
+                const installContainer = document.createElement('div');
+                installContainer.className = 'install-container';
+                installContainer.appendChild(installBtn);
+                footer.prepend(installContainer);
+                
+                // Auto-remove after 30 seconds
+                setTimeout(() => {
+                    if (installContainer.parentElement) {
+                        installContainer.remove();
+                    }
+                }, 30000);
+            }
+        });
+        
+        // Track app version
+        document.addEventListener('DOMContentLoaded', () => {
+            const versionElement = document.getElementById('app-version');
+            if (versionElement) {
+                versionElement.textContent = 'v2.0.' + Date.now().toString().slice(-4);
+            }
+            
+            // Add print button to tools
+            const printBtn = document.createElement('button');
+            printBtn.className = 'btn-secondary';
+            printBtn.innerHTML = '🖨️ Print Tool Results';
+            printBtn.onclick = () => window.print();
+            printBtn.style.marginTop = '1rem';
+            
+            const toolsSection = document.getElementById('tools');
+            if (toolsSection) {
+                toolsSection.querySelector('.section-header').appendChild(printBtn);
+            }
+        });
+        
+        // Enhanced error handling
+        window.addEventListener('error', (e) => {
+            console.error('Application error:', e.error);
+            
+            // Show user-friendly error message
+            if (window.agriApp && window.agriApp.showNotification) {
+                window.agriApp.showNotification(
+                    'An error occurred. Please refresh the page or try again later.',
+                    'error'
+                );
+            }
+        });
+        
+        // Offline detection
+        window.addEventListener('offline', () => {
+            if (window.agriApp && window.agriApp.showNotification) {
+                window.agriApp.showNotification(
+                    'You are now offline. You can continue working with cached data.',
+                    'warning'
+                );
+            }
+        });
+        
+        window.addEventListener('online', () => {
+            if (window.agriApp && window.agriApp.showNotification) {
+                window.agriApp.showNotification(
+                    'You are back online. Sync will happen automatically.',
+                    'success'
+                );
+            }
+        });
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ctrl+S or Cmd+S to sync
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                if (window.agriApp && window.agriApp.manualSync) {
+                    window.agriApp.manualSync();
+                }
+            }
+            
+            // Escape to close notifications
+            if (e.key === 'Escape') {
+                const notifications = document.querySelectorAll('.notification');
+                notifications.forEach(notification => notification.remove());
+            }
+            
+            // ? to show help
+            if (e.key === '?' && !e.ctrlKey && !e.metaKey) {
+                e.preventDefault();
+                if (window.agriApp && window.agriApp.showHelp) {
+                    window.agriApp.showHelp();
+                }
+            }
         });
     </script>
 </body>
