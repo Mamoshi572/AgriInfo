@@ -1,135 +1,137 @@
 {
-  "version": "1.0.0",
-  "lastUpdated": "2024-01-01",
+  "metadata": {
+    "version": "2.0",
+    "country": "Kenya",
+    "lastUpdated": "2024-03-15",
+    "source": "Kenya Agricultural Research Institute",
+    "language": "en"
+  },
   "crops": [
     {
-      "id": 1,
-      "name": "Wheat",
-      "scientificName": "Triticum aestivum",
-      "category": "Cereal",
-      "season": "Rabi (Winter)",
-      "sowingMonths": ["October", "November"],
-      "harvestMonths": ["March", "April"],
-      "soilType": "Loamy soil with good drainage",
-      "pHRange": "6.0-7.5",
-      "waterRequirement": "Medium (500-600mm)",
-      "temperature": "15-25°C",
-      "fertilizers": [
-        "NPK 20-20-0 at sowing",
-        "Urea during tillering",
-        "Potash during flowering"
-      ],
-      "pests": [
-        "Aphids",
-        "Termites",
-        "Army worms"
-      ],
-      "diseases": [
-        "Rust",
-        "Smut",
-        "Powdery mildew"
-      ],
-      "harvestTime": "90-120 days",
-      "yield": "3-4 tons/hectare",
-      "storage": "Store in cool, dry place with moisture <12%",
-      "description": "Wheat is a staple food crop grown worldwide. It requires well-drained loamy soil and moderate water."
-    },
-    {
-      "id": 2,
-      "name": "Rice",
-      "scientificName": "Oryza sativa",
-      "category": "Cereal",
-      "season": "Kharif (Monsoon)",
-      "sowingMonths": ["June", "July"],
-      "harvestMonths": ["October", "November"],
-      "soilType": "Clay or clay loam with water retention",
-      "pHRange": "5.5-6.5",
-      "waterRequirement": "High (1500-2000mm)",
-      "temperature": "20-35°C",
-      "fertilizers": [
-        "NPK 17-17-17 at transplanting",
-        "Urea in 2-3 splits",
-        "Zinc sulfate for deficiency"
-      ],
-      "pests": [
-        "Stem borer",
-        "Brown plant hopper",
-        "Leaf folder"
-      ],
-      "diseases": [
-        "Blast",
-        "Bacterial leaf blight",
-        "Sheath blight"
-      ],
-      "harvestTime": "110-150 days",
-      "yield": "4-6 tons/hectare",
-      "storage": "Dry to 14% moisture before storage",
-      "description": "Rice is a water-intensive crop that feeds half the world's population. Requires standing water during growth."
-    },
-    {
-      "id": 3,
-      "name": "Corn",
+      "id": "crop_maize_001",
+      "name": "Maize",
+      "localName": "Mahindi",
       "scientificName": "Zea mays",
       "category": "Cereal",
-      "season": "Kharif (Summer)",
-      "sowingMonths": ["May", "June"],
-      "harvestMonths": ["September", "October"],
-      "soilType": "Well-drained sandy loam",
-      "pHRange": "5.8-7.0",
-      "waterRequirement": "Medium (500-800mm)",
-      "temperature": "18-32°C",
-      "fertilizers": [
-        "NPK 10-10-10 at sowing",
-        "Nitrogen side dressing",
-        "Borax for sandy soils"
-      ],
-      "pests": [
-        "Corn borer",
-        "Armyworm",
-        "Aphids"
-      ],
-      "diseases": [
-        "Leaf blight",
-        "Smut",
-        "Rust"
-      ],
-      "harvestTime": "60-100 days",
-      "yield": "3-5 tons/hectare",
-      "storage": "Dry to 15% moisture, store in ventilated bins",
-      "description": "Corn is a versatile crop used for food, feed, and industrial products. It's sensitive to waterlogging."
+      "description": "Staple food crop in Kenya, grown in most regions. Main varieties include hybrid, composite, and open-pollinated varieties.",
+      "season": "Long rains (March-May), Short rains (October-December)",
+      "soilType": "Well-drained loam soils with pH 5.5-7.0",
+      "waterRequirement": "Moderate (500-700mm per growing season)",
+      "harvestTime": "3-4 months after planting",
+      "fertilizer": "DAP at planting (100kg/acre), CAN top dressing (150kg/acre)",
+      "pests": ["Stalk borer", "Armyworm", "Storage pests"],
+      "diseases": ["Maize Lethal Necrosis", "Rust", "Leaf blight"],
+      "marketPrice": "KES 50-70 per kg (farm gate)",
+      "counties": ["Nakuru", "Uasin Gishu", "Trans Nzoia", "Bungoma", "Kakamega"],
+      "image": "🌽",
+      "plantingDensity": "25,000 plants per acre",
+      "yield": "20-40 bags per acre (90kg bags)"
+    },
+    {
+      "id": "crop_beans_001",
+      "name": "Beans",
+      "localName": "Maharagwe",
+      "scientificName": "Phaseolus vulgaris",
+      "category": "Legume",
+      "description": "Important protein source, often intercropped with maize. Common varieties include Rosecoco, Mwitemania, and Canadian Wonder.",
+      "season": "Both rainy seasons",
+      "soilType": "Medium loam soils with good drainage",
+      "waterRequirement": "Low to moderate (300-500mm)",
+      "harvestTime": "2-3 months after planting",
+      "fertilizer": "DAP (50kg/acre) or farmyard manure",
+      "pests": ["Bean fly", "Aphids", "Bean bruchid"],
+      "diseases": ["Angular leaf spot", "Anthracnose", "Root rot"],
+      "marketPrice": "KES 120-150 per kg",
+      "counties": ["Kakamega", "Bungoma", "Kisii", "Nyamira", "Meru"],
+      "image": "🫘",
+      "plantingDensity": "100,000 plants per acre",
+      "yield": "4-8 bags per acre (90kg bags)"
+    },
+    {
+      "id": "crop_tea_001",
+      "name": "Tea",
+      "localName": "Chai",
+      "scientificName": "Camellia sinensis",
+      "category": "Cash Crop",
+      "description": "Major export crop grown in high altitude areas. Kenya is world's leading exporter of black tea.",
+      "season": "Year-round with peaks in rainy seasons",
+      "soilType": "Deep, well-drained acidic soils (pH 4.5-5.5)",
+      "waterRequirement": "High (1500-2000mm annually)",
+      "harvestTime": "Continuous plucking every 7-14 days",
+      "fertilizer": "NPK 25:5:5, foliar feeds",
+      "pests": ["Tea mosquito bug", "Red spider mite", "Thrips"],
+      "diseases": ["Blister blight", "Brown blight", "Root rot"],
+      "marketPrice": "KES 200-300 per kg (green leaf)",
+      "counties": ["Kericho", "Nandi", "Nyamira", "Kisii", "Murang'a"],
+      "image": "🍃",
+      "plantingDensity": "6,000-7,000 bushes per acre",
+      "yield": "2,000-3,000 kg green leaf per acre annually"
+    },
+    {
+      "id": "crop_coffee_001",
+      "name": "Coffee",
+      "localName": "Kahawa",
+      "scientificName": "Coffea arabica",
+      "category": "Cash Crop",
+      "description": "Premium Arabica coffee grown in central highlands. Known for its bright acidity and winey flavor.",
+      "season": "Main crop: Oct-Dec, Fly crop: Apr-Jun",
+      "soilType": "Volcanic, well-drained soils rich in organic matter",
+      "waterRequirement": "Moderate to high (1200-1800mm annually)",
+      "harvestTime": "9 months from flowering",
+      "fertilizer": "NPK 17:17:17, organic manure",
+      "pests": ["Coffee berry borer", "Antestia bug", "Mealybugs"],
+      "diseases": ["Coffee berry disease", "Leaf rust", "Brown eye spot"],
+      "marketPrice": "KES 300-500 per kg (parchment)",
+      "counties": ["Kiambu", "Murang'a", "Kirinyaga", "Nyeri", "Embu"],
+      "image": "☕",
+      "plantingDensity": "1,300-1,500 trees per acre",
+      "yield": "2-4 kg parchment per tree annually"
+    },
+    {
+      "id": "crop_potato_001",
+      "name": "Potato",
+      "localName": "Viazi",
+      "scientificName": "Solanum tuberosum",
+      "category": "Tuber",
+      "description": "Important food security crop grown in cool highlands. Common varieties: Shangi, Tigoni, Kenya Mpya.",
+      "season": "Year-round with irrigation",
+      "soilType": "Deep, loose, well-drained soils",
+      "waterRequirement": "Moderate (500-700mm per season)",
+      "harvestTime": "3-4 months after planting",
+      "fertilizer": "NPK 17:17:17 (400kg/acre)",
+      "pests": ["Potato tuber moth", "Aphids", "Cutworms"],
+      "diseases": ["Late blight", "Bacterial wilt", "Viral diseases"],
+      "marketPrice": "KES 40-60 per kg",
+      "counties": ["Nyandarua", "Nakuru", "Meru", "Bomet", "Narok"],
+      "image": "🥔",
+      "plantingDensity": "30,000-40,000 plants per acre",
+      "yield": "7-15 tons per acre"
     }
   ],
-  "pests": [
+  "fertilizers": [
     {
-      "id": 1,
-      "name": "Aphids",
-      "crops": ["Wheat", "Corn", "Vegetables"],
-      "description": "Small sap-sucking insects that cause yellowing and stunted growth.",
-      "symptoms": [
-        "Curled leaves",
-        "Sticky honeydew secretion",
-        "Sooty mold growth"
-      ],
-      "organicControl": [
-        "Neem oil spray (2%)",
-        "Garlic-chili spray",
-        "Ladybird beetles (natural predators)"
-      ],
-      "chemicalControl": [
-        "Imidacloprid 17.8% SL",
-        "Acetamiprid 20% SP"
-      ],
-      "prevention": "Remove weeds, use yellow sticky traps"
+      "name": "DAP",
+      "composition": "Diammonium Phosphate (18:46:0)",
+      "use": "Basal fertilizer for cereals and legumes",
+      "rate": "50-100 kg/acre"
+    },
+    {
+      "name": "CAN",
+      "composition": "Calcium Ammonium Nitrate (26% N)",
+      "use": "Top dressing for maize and cereals",
+      "rate": "100-150 kg/acre"
+    },
+    {
+      "name": "NPK",
+      "composition": "Nitrogen, Phosphorus, Potassium (17:17:17)",
+      "use": "General purpose fertilizer",
+      "rate": "100-200 kg/acre"
     }
   ],
-  "marketPrices": [
-    {
-      "id": 1,
-      "crop": "Wheat",
-      "price": "₹2100/quintal",
-      "market": "Mandi",
-      "date": "2024-01-15",
-      "trend": "stable"
-    }
-  ]
+  "conversionRates": {
+    "acreToHectare": 0.4047,
+    "kgToBag": 0.0111,
+    "bagWeight": 90,
+    "currency": "KES"
+  }
 }
